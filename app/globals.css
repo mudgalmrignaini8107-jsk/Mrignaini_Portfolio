@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-cormorant: var(--font-cormorant), ui-serif, Georgia, serif;
+
+  /* Increased font size scaling globally */
+  --text-xs: 0.85rem;
+  --text-sm: 0.95rem;
+  --text-base: 1.1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.45rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.15rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.5rem;
+  --text-6xl: 4.5rem;
+  --text-7xl: 5.5rem;
+  --text-8xl: 6.8rem;
+
+  /* User requested palette mapping */
+  --color-navy-base: #1B263B;
+  --color-red-base: #B23A48;
+  --color-peach-base: #D4A373;
+  --color-cream-base: #FAF3E0;
+  --color-charcoal-base: #111111;
+
+  /* Override structural colors to fit new palette */
+  --color-neutral-warm-50: #FAF3E0;  /* Warm Cream */
+  --color-neutral-warm-100: #F5EBD4; /* Muted Cream */
+  --color-neutral-warm-200: #EADCB6; /* Dark Cream */
+  --color-neutral-warm-800: #1B263B; /* Navy Blue */
+  --color-neutral-warm-900: #111111; /* Charcoal Text */
+  --color-neutral-warm-950: #0C111A; /* Deep Navy */
+
+  --color-gold-light: #E0C7A6;
+  --color-gold-base: #D4A373; /* Soft Peach */
+  --color-gold-dark: #C59560;
+
+  --color-sage-light: #34486B;
+  --color-sage-base: #1B263B;  /* Navy Blue */
+  --color-sage-dark: #121A2A;
+
+  --color-blush-light: #F0A5AD;
+  --color-blush-base: #B23A48;  /* Accent Red */
+  --color-blush-dark: #8F222D;
+
+  --color-luxury-bg-light: #FAF3E0; /* Warm Cream Background */
+  --color-luxury-bg-dark: #0C111A; /* Deep Navy Background */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom text selections */
+::selection {
+  background-color: var(--color-gold-base);
+  color: #1C1A18;
+}
+
+/* Custom drift animations for volumetric ambient lighting */
+@keyframes drift-slow {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(4vw, -5vh) scale(1.05) rotate(120deg); }
+  66% { transform: translate(-3vw, 4vh) scale(0.95) rotate(240deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}
+
+@keyframes drift-mid {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  50% { transform: translate(-5vw, 3vh) scale(1.1) rotate(-180deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(-360deg); }
+}
+
+@keyframes drift-fast {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  40% { transform: translate(3vw, 3vh) scale(0.9) rotate(90deg); }
+  75% { transform: translate(-4vw, -2vh) scale(1.05) rotate(270deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(360deg); }
+}
+
+.animate-drift-slow {
+  animation: drift-slow 35s infinite ease-in-out;
+}
+
+.animate-drift-mid {
+  animation: drift-mid 28s infinite ease-in-out;
+}
+
+.animate-drift-fast {
+  animation: drift-fast 24s infinite ease-in-out;
+}
+
+/* Custom utilities for writing vertical text */
+.writing-mode-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
