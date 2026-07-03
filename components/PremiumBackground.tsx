@@ -16,15 +16,17 @@ export default function PremiumBackground() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const particles: Particle[] = [];
-    const particleCount = 28;
+    const petals: Petal[] = [];
+    const petalCount = 42;
 
-    class Particle {
+    class Petal {
       x: number;
       y: number;
       size: number;
       speedX: number;
       speedY: number;
+      angle: number;
+      rotationSpeed: number;
       alpha: number;
       alphaSpeed: number;
       color: string;
@@ -32,17 +34,20 @@ export default function PremiumBackground() {
       constructor() {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.15;
-        this.speedY = (Math.random() - 0.5) * 0.15 - 0.05; // slowly drift up
-        this.alpha = Math.random() * 0.3 + 0.1;
-        this.alphaSpeed = 0.002 + Math.random() * 0.003;
+        // Very small petals for a peaceful look
+        this.size = Math.random() * 2 + 1.5;
+        this.speedX = (Math.random() - 0.5) * 0.12;
+        this.speedY = 0.18 + Math.random() * 0.22; // slowly falling down
+        this.angle = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.008;
+        this.alpha = Math.random() * 0.4 + 0.15;
+        this.alphaSpeed = 0.001 + Math.random() * 0.002;
         
-        // Randomly choose between accent colors
+        // Mapped to Maroon Maple Red (#7A1C25), Peach (#D4A373), and Navy Blue (#1B263B)
         const colors = [
+          "rgba(122, 28, 37,",  // Maroon Maple Red
           "rgba(212, 163, 115,", // Soft Peach
-          "rgba(27, 38, 59,",    // Navy Blue
-          "rgba(178, 58, 72,"    // Accent Red
+          "rgba(27, 38, 59,"     // Navy Blue
         ];
         this.color = colors[Math.floor(Math.random() * colors.length)];
       }
@@ -50,34 +55,43 @@ export default function PremiumBackground() {
       update() {
         this.x += this.speedX;
         this.y += this.speedY;
+        this.angle += this.rotationSpeed;
 
-        // Wrap around boundaries
-        if (this.x < 0) this.x = width;
-        if (this.x > width) this.x = 0;
-        if (this.y < 0) this.y = height;
-        if (this.y > height) this.y = height;
+        // Reset if it goes off screen
+        if (this.x < -20) this.x = width + 20;
+        if (this.x > width + 20) this.x = -20;
+        if (this.y > height + 20) {
+          this.y = -20;
+          this.x = Math.random() * width;
+          this.speedY = 0.18 + Math.random() * 0.22;
+          this.speedX = (Math.random() - 0.5) * 0.12;
+        }
 
-        // Pulsing opacity
+        // Opacity pulsing
         this.alpha += this.alphaSpeed;
-        if (this.alpha > 0.55 || this.alpha < 0.05) {
+        if (this.alpha > 0.65 || this.alpha < 0.1) {
           this.alphaSpeed = -this.alphaSpeed;
         }
       }
 
       draw(c: CanvasRenderingContext2D) {
+        c.save();
+        c.translate(this.x, this.y);
+        c.rotate(this.angle);
         c.beginPath();
-        c.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        // Draw a delicate organic leaf/petal shape
+        c.moveTo(0, 0);
+        c.quadraticCurveTo(this.size, -this.size / 2, this.size * 2, 0);
+        c.quadraticCurveTo(this.size, this.size / 2, 0, 0);
         c.fillStyle = `${this.color} ${this.alpha})`;
-        c.shadowBlur = 4;
-        c.shadowColor = "rgba(197, 168, 128, 0.2)";
         c.fill();
-        c.shadowBlur = 0; // Reset shadow
+        c.restore();
       }
     }
 
-    // Initialize particles
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
+    // Initialize petals
+    for (let i = 0; i < petalCount; i++) {
+      petals.push(new Petal());
     }
 
     const handleResize = () => {
@@ -91,10 +105,10 @@ export default function PremiumBackground() {
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Draw all particles
-      particles.forEach((particle) => {
-        particle.update();
-        particle.draw(ctx);
+      // Draw all falling leaf petals
+      petals.forEach((petal) => {
+        petal.update();
+        petal.draw(ctx);
       });
 
       animationFrameId = requestAnimationFrame(animate);
@@ -110,14 +124,14 @@ export default function PremiumBackground() {
 
   return (
     <div className="fixed inset-0 -z-50 overflow-hidden bg-luxury-bg-light dark:bg-luxury-bg-dark transition-colors duration-700">
-      {/* volumentric ambient glow shapes */}
+      {/* 3D volumetric glowing ambient light shape layers */}
       <div className="absolute inset-0 opacity-40 dark:opacity-30 mix-blend-multiply dark:mix-blend-screen pointer-events-none filter blur-[120px] will-change-transform">
-        <div className="absolute top-[10%] left-[20%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-gold-light/40 to-blush-light/30 animate-drift-slow" />
+        <div className="absolute top-[10%] left-[20%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-tr from-blush-light/40 to-gold-light/30 animate-drift-slow" />
         <div className="absolute bottom-[15%] right-[10%] w-[50vw] h-[50vw] rounded-full bg-gradient-to-br from-sage-light/30 to-gold-light/40 animate-drift-mid" />
         <div className="absolute top-[40%] right-[30%] w-[35vw] h-[35vw] rounded-full bg-gradient-to-bl from-blush-light/35 to-sage-light/25 animate-drift-fast" />
       </div>
 
-      {/* Floating canvas particles */}
+      {/* Falling leaf petals canvas layer */}
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-80" />
 
       {/* Subtle fine noise grain texture */}

@@ -1,50 +1,52 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-playfair), ui-serif, Georgia, serif;
+  --font-serif: var(--font-cinzel), ui-serif, Georgia, serif;
   --font-cormorant: var(--font-cormorant), ui-serif, Georgia, serif;
 
-  /* Increased font size scaling globally */
-  --text-xs: 0.85rem;
-  --text-sm: 0.95rem;
-  --text-base: 1.1rem;
-  --text-lg: 1.25rem;
-  --text-xl: 1.45rem;
-  --text-2xl: 1.75rem;
-  --text-3xl: 2.15rem;
-  --text-4xl: 2.75rem;
-  --text-5xl: 3.5rem;
-  --text-6xl: 4.5rem;
-  --text-7xl: 5.5rem;
-  --text-8xl: 6.8rem;
+  /* Increased font size scaling globally further */
+  --text-xs: 0.925rem;
+  --text-sm: 1.05rem;
+  --text-base: 1.2rem;
+  --text-lg: 1.35rem;
+  --text-xl: 1.55rem;
+  --text-2xl: 1.9rem;
+  --text-3xl: 2.3rem;
+  --text-4xl: 2.95rem;
+  --text-5xl: 3.75rem;
+  --text-6xl: 4.8rem;
+  --text-7xl: 5.8rem;
+  --text-8xl: 7.2rem;
 
   /* User requested palette mapping */
   --color-navy-base: #1B263B;
-  --color-red-base: #B23A48;
-  --color-peach-base: #D4A373;
-  --color-cream-base: #FAF3E0;
+  --color-red-base: #7A1C25;     /* Maroon Maple Red */
+  --color-peach-base: #D4A373;   /* Soft Peach */
+  --color-cream-base: #FAF3E0;   /* Warm Cream */
   --color-charcoal-base: #111111;
 
   /* Override structural colors to fit new palette */
-  --color-neutral-warm-50: #FAF3E0;  /* Warm Cream */
-  --color-neutral-warm-100: #F5EBD4; /* Muted Cream */
+  --color-neutral-warm-50: #FAF3E0;  /* Warm Cream Background */
+  --color-neutral-warm-100: #F3EBD4; /* Muted Cream */
   --color-neutral-warm-200: #EADCB6; /* Dark Cream */
   --color-neutral-warm-800: #1B263B; /* Navy Blue */
   --color-neutral-warm-900: #111111; /* Charcoal Text */
   --color-neutral-warm-950: #0C111A; /* Deep Navy */
 
-  --color-gold-light: #E0C7A6;
-  --color-gold-base: #D4A373; /* Soft Peach */
-  --color-gold-dark: #C59560;
+  --color-gold-light: #B2888D;
+  --color-gold-base: #7A1C25; /* Maroon Maple Red used for primary accents */
+  --color-gold-dark: #5E141B;
 
   --color-sage-light: #34486B;
   --color-sage-base: #1B263B;  /* Navy Blue */
   --color-sage-dark: #121A2A;
 
-  --color-blush-light: #F0A5AD;
-  --color-blush-base: #B23A48;  /* Accent Red */
-  --color-blush-dark: #8F222D;
+  --color-blush-light: #B2888D;
+  --color-blush-base: #7A1C25;  /* Maroon Maple Red */
+  --color-blush-dark: #5E141B;
 
   --color-luxury-bg-light: #FAF3E0; /* Warm Cream Background */
   --color-luxury-bg-dark: #0C111A; /* Deep Navy Background */

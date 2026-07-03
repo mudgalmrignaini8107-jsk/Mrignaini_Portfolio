@@ -90,7 +90,7 @@ export default function Contact() {
               <span className="font-sans text-[11px] font-bold tracking-widest uppercase text-gold-light block mb-3">
                 Get In Touch
               </span>
-              <h2 className="font-sans text-4xl md:text-6xl font-extrabold text-neutral-warm-50 tracking-tight leading-[1.08] mb-6">
+              <h2 className="font-serif text-3xl md:text-6xl font-bold text-neutral-warm-50 tracking-wide uppercase leading-[1.08] mb-6">
                 LET'S WORK<br />TOGETHER
               </h2>
               <p className="font-sans text-base md:text-lg text-neutral-warm-100/70 leading-relaxed max-w-sm mb-12">

@@ -10,7 +10,12 @@ export default function Projects() {
     {
       num: "N° 01",
       title: "AI Meeting Prep Agent — AURA",
-      desc: "A full-stack system that generates intelligent meeting briefs by synthesizing Google Calendar events and Gmail conversations. It features OAuth 2.0 + JWT authentication for secure Google API integration, powered by an LLM-driven RAG pipeline for smart email and document summarization.",
+      desc: "A full-stack, AI-powered system designed to prepare users for meetings by automatically synthesizing context from event histories.",
+      bullets: [
+        "Built a full-stack system that generates meeting briefs by extracting and synthesizing data from Google Calendar events and Gmail conversations.",
+        "Implemented OAuth 2.0 and JWT-based authentication for secure, token-managed Google API integration.",
+        "Designed an LLM-powered RAG pipeline to summarize email threads and surface key meeting context automatically."
+      ],
       stack: ["FastAPI", "React", "PostgreSQL", "Google APIs", "OAuth 2.0", "JWT"],
       image: "/assets/project-aura.png",
       github: "https://github.com/mrignaini",
@@ -18,7 +23,12 @@ export default function Projects() {
     {
       num: "N° 02",
       title: "LexiMind AI — Legal Intelligence Platform",
-      desc: "A retrieval-augmented platform for complex contract analysis combining BM25 keyword matching with semantic vector search for a high-recall dual-retrieval pipeline. Includes a multi-LLM fallback layer for reliable reasoning and Tesseract OCR integration for processing scanned legal documents.",
+      desc: "An advanced contract analysis platform that transforms long legal files into clear actionable structured intelligence.",
+      bullets: [
+        "Built a RAG-based contract analysis system using semantic search and ChromaDB vector storage for legal document retrieval.",
+        "Implemented a dual-retrieval architecture (BM25 + semantic search) with multi-LLM fallback to improve response reliability.",
+        "Integrated Tesseract OCR to enable processing and analysis of scanned legal documents."
+      ],
       stack: ["React", "FastAPI", "ChromaDB", "Supabase", "Tesseract OCR", "RAG"],
       image: "/assets/project-leximind.png",
       github: "https://github.com/mrignaini",
@@ -71,7 +81,7 @@ export default function Projects() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-sans text-4xl md:text-5xl font-extrabold text-neutral-warm-800 dark:text-neutral-warm-50 tracking-tight"
+            className="font-serif text-3xl md:text-5xl font-bold text-neutral-warm-800 dark:text-neutral-warm-50 tracking-wide uppercase"
           >
             FEATURED PROJECTS
           </motion.h2>
@@ -124,6 +134,16 @@ export default function Projects() {
                 <p className="font-sans text-base md:text-lg text-neutral-warm-800/80 dark:text-neutral-warm-100/85 leading-relaxed">
                   {project.desc}
                 </p>
+
+                {/* Bullets mapping */}
+                <ul className="space-y-2 mb-2">
+                  {project.bullets.map((bullet, bulletIdx) => (
+                    <li key={bulletIdx} className="font-sans text-sm md:text-base text-neutral-warm-800/70 dark:text-neutral-warm-100/70 pl-5 relative leading-relaxed">
+                      <span className="absolute left-0 top-3 w-1.5 h-[1px] bg-red-base" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
 
                 {/* Tech badges */}
                 <div className="flex flex-wrap gap-2.5 mt-2">

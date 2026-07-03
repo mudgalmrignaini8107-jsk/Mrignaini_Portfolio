@@ -52,19 +52,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="font-sans text-5xl md:text-8xl tracking-tight font-bold text-neutral-warm-800 dark:text-neutral-warm-50 leading-[1.05]"
+          className="font-sans text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight font-extrabold text-red-base dark:text-red-base leading-[1.05] whitespace-nowrap"
         >
-          Mrig Naini{" "}
-          <span className="font-serif italic font-light text-gold-base relative inline-block">
-            Mudgal
-            <svg
-              className="absolute -bottom-2 left-0 w-full h-[6px] text-blush-base/30 dark:text-gold-base/15 pointer-events-none"
-              viewBox="0 0 100 10"
-              preserveAspectRatio="none"
-            >
-              <path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
-            </svg>
-          </span>
+          MRIGNAINI MUDGAL
         </motion.h1>
 
         {/* Subtitle */}
@@ -100,7 +90,7 @@ export default function Hero() {
 
           {/* Secondary Action Button */}
           <a
-            href="/assets/Mrignaini_Resume_.pdf"
+            href="/assets/Mrignaini_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="group px-8 py-4 w-full sm:w-auto font-sans text-sm tracking-wider font-semibold uppercase rounded-full border border-neutral-warm-800/20 hover:border-neutral-warm-800 dark:border-neutral-warm-100/20 dark:hover:border-neutral-warm-100 text-neutral-warm-800 dark:text-neutral-warm-100 transition-all duration-300 flex items-center justify-center gap-2 hover:bg-neutral-warm-100/30 dark:hover:bg-neutral-warm-800/10 shadow-sm"

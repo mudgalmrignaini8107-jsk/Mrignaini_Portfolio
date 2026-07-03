@@ -69,7 +69,7 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-sans text-4xl md:text-5xl font-extrabold text-neutral-warm-800 dark:text-neutral-warm-50 tracking-tight"
+            className="font-serif text-3xl md:text-5xl font-bold text-neutral-warm-800 dark:text-neutral-warm-50 tracking-wide uppercase"
           >
             WHAT I DO
           </motion.h2>

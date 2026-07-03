@@ -110,12 +110,9 @@ export default function Navbar() {
           onClick={(e) => handleNavClick(e, "#hero")}
           className="group flex items-center gap-2 text-neutral-warm-800 dark:text-neutral-warm-50 font-sans tracking-wide text-lg md:text-xl font-medium"
         >
-          <span className="font-serif italic font-semibold text-gold-base group-hover:text-gold-dark transition-colors duration-300">
-            桜
-          </span>
-          <span className="relative">
-            Mrig Naini
-            <span className="absolute -bottom-0.5 left-0 w-0 h-[1.5px] bg-gold-base transition-all duration-300 group-hover:w-full"></span>
+          <span className="relative font-bold text-red-base dark:text-red-base tracking-wider">
+            MRIGNAINI MUDGAL
+            <span className="absolute -bottom-0.5 left-0 w-0 h-[1.5px] bg-red-base transition-all duration-300 group-hover:w-full"></span>
           </span>
         </a>
 

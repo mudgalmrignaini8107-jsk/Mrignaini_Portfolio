@@ -2,22 +2,27 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Calendar, Building, GraduationCap, Server } from "lucide-react";
+import { Calendar, Building, GraduationCap, Link2 } from "lucide-react";
 
 export default function Experience() {
   const experiences = [
     {
       type: "internship",
-      role: "Python Full Stack Internship",
+      role: "Python Full Stack Development Intern",
       org: "EduSkill Foundation",
-      date: "May 2026 — Jul 2026",
+      date: "Apr 2026 – Jun 2026",
       icon: <Building className="w-5 h-5" />,
       bullets: [
-        "Built 3+ full-stack applications using Django and PostgreSQL with robust user authentication and modern, responsive user interfaces.",
-        "Designed optimized database schemas and wrote advanced SQL queries to enhance data retrieval speeds.",
-        "Managed team repositories via Git and implemented CI/CD best practices to streamline release cycles.",
+        "Completed an intensive 8-week full-stack development program, building end-to-end web applications with Django, JavaScript, jQuery, and SQL.",
+        "Developed responsive, multi-page web interfaces using HTML, CSS, and Bootstrap, integrated with Django backend services and SQL databases.",
+        "Collaborated using Git-based version control workflows, contributing to team-based feature development and code integration.",
+        "Applied full-stack engineering principles across front-end design, back-end logic, database management, and deployment."
       ],
-      highlights: ["Django", "PostgreSQL", "Database Design", "Git", "CI/CD"],
+      highlights: ["Django", "JavaScript", "jQuery", "Bootstrap", "PostgreSQL", "Git"],
+      links: [
+        { label: "Offer Letter", url: "#" },
+        { label: "Certificate", url: "#" }
+      ]
     },
     {
       type: "education",
@@ -27,16 +32,33 @@ export default function Experience() {
       icon: <GraduationCap className="w-5 h-5" />,
       bullets: [
         "Building a rigorous academic foundation in data structures, algorithms, operating systems, and computer network architectures.",
-        "Actively developing full-stack applications, integrating generative AI systems, and leading software projects.",
+        "Actively developing full-stack applications, integrating generative AI systems, and leading software projects."
       ],
       highlights: ["Data Structures", "Algorithms", "Software Engineering", "AI Integration"],
+      links: [
+        { label: "IPEC Website", url: "http://www.ipec.org.in" }
+      ]
     },
+    {
+      type: "education",
+      role: "Senior Secondary (Class XII — Physics, Chemistry, Mathematics)",
+      org: "Presentation Convent Senior Secondary School, Delhi",
+      date: "2024",
+      icon: <GraduationCap className="w-5 h-5" />,
+      bullets: [
+        "Completed high school specialization in Physics, Chemistry, and Mathematics with a strong academic record."
+      ],
+      highlights: ["Physics", "Chemistry", "Mathematics", "Science Division"],
+      links: [
+        { label: "School Portal", url: "#" }
+      ]
+    }
   ];
 
   const technologies = [
     "Python", "JavaScript / TypeScript", "Java", "C++", "SQL",
     "Django", "FastAPI", "React", "PostgreSQL", "Supabase",
-    "GitHub Actions", "Vercel", "Twilio"
+    "GitHub Actions", "Vercel"
   ];
 
   return (
@@ -65,7 +87,7 @@ export default function Experience() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-sans text-4xl md:text-5xl font-extrabold text-neutral-warm-50 tracking-tight"
+            className="font-serif text-3xl md:text-5xl font-bold text-neutral-warm-50 tracking-wide uppercase"
           >
             EXPERIENCE TIMELINE
           </motion.h2>
@@ -111,6 +133,24 @@ export default function Experience() {
                   </li>
                 ))}
               </ul>
+
+              {/* Action Links */}
+              {exp.links && (
+                <div className="flex flex-wrap gap-2.5 mb-6">
+                  {exp.links.map((link, linkIdx) => (
+                    <a
+                      key={linkIdx}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 font-sans text-[10px] font-bold tracking-wider uppercase text-gold-light hover:text-neutral-warm-50 border border-neutral-warm-800 hover:border-gold-base/50 px-3.5 py-1.5 rounded-full bg-neutral-warm-950/40 transition-all duration-300 shadow-sm"
+                    >
+                      <Link2 className="w-3 h-3" />
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+              )}
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2">

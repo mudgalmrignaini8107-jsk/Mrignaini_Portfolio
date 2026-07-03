@@ -58,7 +58,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-sans text-4xl md:text-5xl font-extrabold text-neutral-warm-800 dark:text-neutral-warm-50 tracking-tight"
+            className="font-serif text-3xl md:text-5xl font-bold text-neutral-warm-800 dark:text-neutral-warm-50 tracking-wide uppercase"
           >
             A PASSION FOR ENGINEERING INTELLIGENCE
           </motion.h2>
@@ -75,7 +75,7 @@ export default function About() {
             className="lg:col-span-7 flex flex-col gap-8"
           >
             <p className="font-sans text-lg md:text-xl text-neutral-warm-800/90 dark:text-neutral-warm-100/95 leading-relaxed">
-              I am a <strong className="font-semibold text-neutral-warm-900 dark:text-neutral-warm-50">B.Tech Computer Science student</strong> with a strong drive to build innovative software solutions. I specialize in designing full-stack systems, integrating large language models (LLMs), and developing robust web applications. By combining academic foundation with hands-on projects, I have placed among the top finishers at national hackathons and deployed systems that deliver real value.
+              I am a <strong className="font-semibold text-neutral-warm-900 dark:text-neutral-warm-50">Computer Science undergraduate (Class of 2028)</strong> with hands-on experience building full-stack, AI-powered applications using RAG pipelines, LLM integration, and secure API architectures. Having completed an intensive full-stack development internship and independently designed two end-to-end projects featuring OAuth 2.0 authentication, semantic search, and multi-LLM systems, I am currently seeking Software Engineering / AI-ML internship opportunities.
             </p>
 
             {/* Grid of meta specs */}
